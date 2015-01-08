@@ -1,10 +1,15 @@
 
-
+@import 'normalize';
 @import "bourbon";
 @import "base/base";
 @import "neat";
 
 .naver {
-  @include span-columns(11);
+  @include span-columns(12);
   background-color: #1BB4DE;
+  height: em(60);
+  background: shade(blue, 30%);
+  @include perspective(300px);
+  @include perspective-origin(30% 30%);
+  border-bottom: 1px solid black;
 }
