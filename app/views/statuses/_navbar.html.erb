@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Minstrel2</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <link href='http://fonts.googleapis.com/css?family=Nunito:400,700,300' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <article class="type-system-rounded">
-   <header class="centered-navigation">
+<header class="centered-navigation">
   <div class="centered-navigation-wrapper">
     <a href="javascript:void(0)" class="mobile-logo">
       <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3_dark.png" alt="Logo image">
@@ -44,23 +32,7 @@
           </li>
         </ul>
       </li>
-      <% if user_signed_in? %>
-        <li class="nav-link">
-          <%= link_to current_user.full_name, edit_user_registration_path %>
-          <li class="nav-link"><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
-        <% else %>
-           <%= link_to "Sign In", user_session_path %>
-        <%end%>   
-        </li>
+      <li class="nav-link"><%= link_to current_user.full_name, edit_user_registration_path %></li>
     </ul>
   </div>
 </header>
-    <div class="main-container">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-      <%= yield %>
-    </div>
-  </article>
-</body>  
-</html>
-
