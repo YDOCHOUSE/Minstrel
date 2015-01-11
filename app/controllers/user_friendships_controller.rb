@@ -13,8 +13,8 @@ class UserFriendshipsController < ApplicationController
   end
 
   def create
-    if params[:friend_id]
-      @friend = User.find(params[:friend_id])
+    if params[:user_friendship] && params[:user_friendship].has_key?(:friend_id)
+      @friend = User.where(profile_name: params[:user_friendship][:friend_id]).first
       @user_friendship = current_user.user_friendships.new(friend: @friend)
       if @user_friendship.save
         flash[:success] = "Friendship created."

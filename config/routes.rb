@@ -13,20 +13,21 @@ Rails.application.routes.draw do
 as :user do 
 # The request type and url, to controller/action, and then the pathname
     #get '/register', to: 'devise/registrations#new', via: :get, as: :register
-    #get '/sign-in', to: 'devise/sessions#new', as: 'sign_in'
-    post '/sign-in', to: 'devise/sessions#create', as: 'sign_in'    
+    get '/sign-in', to: 'devise/sessions#new'
+    post '/sign-in', to: 'devise/sessions#create'    
     delete '/sign-out', to: 'devise/registrations#destroy', as: 'sign_out'
     get 'edit', to: 'devise/registrations#edit', as: 'edit'
   end
 
 
-  resources :user_friendships
+  resources :user_friendships do
+  end
 
   resources :statuses
   get 'feed', to: "statuses#index", as: 'feed'
   root to: 'statuses#index'
 
-  get '/:id', to: 'profiles#show'
+  get '/:id', to: 'profiles#show', as: 'profile'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
