@@ -14,7 +14,7 @@
   <tbody>
   
     <% @statuses.each do |status| %>
-      <tr>
+    <tr>
         <td><%= status.user.full_name %></td>
         <td><%= link_to status.content, status%></td>
         <% if user_signed_in? %>

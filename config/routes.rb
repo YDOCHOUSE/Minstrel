@@ -3,14 +3,24 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { registrations: 'registrations' }
   
-  devise_scope :user do
-    
+  as :user do
+    get '/register', to: 'devise/registrations#new',via: :get, as: :register
+    #get '/sign-in', to: 'devise/sessions#new', via: :get, as: :sign_in
+    get '/sign-out', to: 'devise/sessions#destroy', via: :delete, as: :sign_out_session
+  end
+
+  devise_for :users, :skip => [:sessions]
+as :user do 
 # The request type and url, to controller/action, and then the pathname
-    get 'register', to: 'devise/registrations#new', as: 'register'
-    get 'sign-in', to: 'devise/sessions#new', as: 'sign_in'
-    get 'sign-out', to: 'devise/registrations#destroy', as: 'sign_out'
+    #get '/register', to: 'devise/registrations#new', via: :get, as: :register
+    #get '/sign-in', to: 'devise/sessions#new', as: 'sign_in'
+    post '/sign-in', to: 'devise/sessions#create', as: 'sign_in'    
+    delete '/sign-out', to: 'devise/registrations#destroy', as: 'sign_out'
     get 'edit', to: 'devise/registrations#edit', as: 'edit'
   end
+
+
+  resources :user_friendships
 
   resources :statuses
   get 'feed', to: "statuses#index", as: 'feed'

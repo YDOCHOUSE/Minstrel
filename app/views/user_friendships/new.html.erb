@@ -1,0 +1,29 @@
+<% if flash[:error] %>
+Not found.
+<% else %>
+<div class="page-header">
+  <h1><%= @friend.full_name %></h1>
+</div>
+
+<p>
+  Do you really want to friend <%= @friend.full_name %>?
+</p>
+
+<%= form_for @user_friendship, method: :post do |form|
+  <% form.hidden_field :friend_id, value: @friend %>
+  <div class="modal">
+    <label for="modal-1">
+      <div class="modal-trigger">Send Friend Request</div>
+    </label>
+  <input class="modal-state" id="modal-1" type="checkbox" />
+    <div class="modal-window">
+      <div class="modal-inner">
+        <label class="modal-close" for="modal-1"></label>
+         <h1>Are You sure?</h1>
+         <div class="friend_button">
+         <%= submit_tag "Yes, Add as a Friend", class="friend_request" %>
+       </div>
+    </div>
+  </div>
+</div>
+<% end %>
