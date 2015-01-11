@@ -9,7 +9,7 @@ Not found.
   Do you really want to friend <%= @friend.full_name %>?
 </p>
 
-<%= form_for @user_friendship, method: :post do |form|
+<%= form_for @user_friendship, method: :post do |form| %>
   <% form.hidden_field :friend_id, value: @friend %>
   <div class="modal">
     <label for="modal-1">
@@ -21,9 +21,10 @@ Not found.
         <label class="modal-close" for="modal-1"></label>
          <h1>Are You sure?</h1>
          <div class="friend_button">
-         <%= submit_tag "Yes, Add as a Friend", class="friend_request" %>
+         <%= submit_tag "Yes, Add as a Friend" %>
        </div>
     </div>
   </div>
 </div>
+<% end %>
 <% end %>
