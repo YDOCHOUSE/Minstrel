@@ -15,7 +15,7 @@
   
     <% @statuses.each do |status| %>
     <tr>
-        <td><%= link_to status.user.full_name %></td>
+        <td><%= link_to status.user.full_name, profile_path(status.user.profile_name) %></td>
         <td><%= link_to status.content, status%></td>
         <% if user_signed_in? %>
           <td><%= link_to 'Edit', edit_status_path(status) %></td>
