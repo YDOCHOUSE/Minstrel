@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations' }
+  
+  devise_scope :user do
+    get 'register', to: 'devise/registrations#new', as: 'register'
+    get 'sign-in', to: 'devise/sessions#new', as: 'sign_in'
+    get 'sign-out', to: 'devise/registrations#destroy', as: 'sign_out'
+
+  end
+
   resources :statuses
   root to: 'statuses#index'
 

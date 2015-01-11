@@ -47,13 +47,13 @@
       <% if user_signed_in? %>
         <li class="nav-link">
           <%= link_to current_user.full_name, edit_user_registration_path %>
-          <li class="nav-link"><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
+          <li class="nav-link"><%= link_to 'Log Out', sign_out_path %></li>
         <% else %>
           <li class="nav-link">
-            <%= link_to "Sign In", user_session_path %>
+            <%= link_to "Sign In", sign_in_path %>
           </li>
           <li class="nav-link">
-            <%= link_to "Register", new_user_registration_path %>
+            <%= link_to "Register", register_path %>
           </li>
         <%end%>   
         </li>
@@ -61,8 +61,19 @@
   </div>
 </header>
     <div class="main-container">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+
+      <%if flash[:notice] %>
+        <label class="label-success">
+          <%= flash[:notice] %>
+        </label>
+      <% end %>
+
+      <%if flash[:alert] %>
+        <label class="label-error">
+          <%= flash[:alert] %>
+        </label>
+      <% end %>
+
       <%= yield %>
     </div>
   </article>
