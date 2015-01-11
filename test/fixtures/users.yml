@@ -1,0 +1,7 @@
+cody:
+  first_name: "Cody"
+  last_name: "House"
+  email: "codyahouse@gmail.com"
+  profile_name: "CodyLand"
+  password: "password"
+  password_confirmation: "password"
