@@ -1,2 +1,19 @@
-<h1>Profiles#show</h1>
-<p>Find me in app/views/profiles/show.html.erb</p>
+<div class="page-header">
+ 
+</div>
+
+<% if @statuses %>
+  <% @statuses.each do |status| %>
+    
+    <div class="comment">
+      <div class="comment-image">
+        <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="Logo image">
+      </div>
+      <div class="comment-content">
+        <h1><%= @user.full_name %></h1>
+        <p><%= status.content %></p>
+        <p class="comment-detail"><%= link_to time_ago_in_words(status.created_at), status_path(status) %> ago</p>
+      </div>
+    </div>
+  <% end %>
+<% end %>

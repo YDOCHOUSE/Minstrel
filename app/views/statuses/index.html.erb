@@ -7,21 +7,29 @@
       <th>Content</th>
       <th colspan="3"></th>
     </tr>
+  
+<% if @statuses %>  
   </thead>
 
   <tbody>
+  
     <% @statuses.each do |status| %>
       <tr>
         <td><%= status.user.full_name %></td>
-        <td><%= status.content %></td>
-        <td><%= link_to 'Show', status %></td>
-        <td><%= link_to 'Edit', edit_status_path(status) %></td>
-        <td><%= link_to 'Destroy', status, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to status.content, status%></td>
+        <% if user_signed_in? %>
+          <td><%= link_to 'Edit', edit_status_path(status) %></td>
+          <td><%= link_to 'Destroy', status, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </td>
+        <% end %> 
       </tr>
     <% end %>
   </tbody>
 </table>
-
 <br>
-
-<%= link_to 'New Status', new_status_path %>
+<%end%>
+<% if current_user %>
+  <%= link_to 'New Status', new_status_path %>
+<% else %>
+  <%= link_to "Make A Profile, It's Easy!", register_path %>
+<% end %>
