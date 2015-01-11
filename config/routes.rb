@@ -2,13 +2,16 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations' }
   
   devise_scope :user do
+    
+# The request type and url, to controller/action, and then the pathname
     get 'register', to: 'devise/registrations#new', as: 'register'
     get 'sign-in', to: 'devise/sessions#new', as: 'sign_in'
     get 'sign-out', to: 'devise/registrations#destroy', as: 'sign_out'
-
+    get 'edit', to: 'devise/registrations#edit', as: 'edit'
   end
 
   resources :statuses
+  get 'feed', to: "statuses#index", as: 'feed'
   root to: 'statuses#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
