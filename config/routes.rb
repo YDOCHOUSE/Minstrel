@@ -25,7 +25,7 @@ as :user do
 
   resources :statuses
   get 'feed', to: "statuses#index", as: 'feed'
-  root to: 'statuses#index'
+  root to: 'welcome#index'
 
   get '/:id', to: 'profiles#show', as: 'profile'
 
