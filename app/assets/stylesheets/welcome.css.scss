@@ -38,6 +38,7 @@
       h1 {
         font-size: 6.8em;
         margin-bottom: 0.5em;
+        font-family: 'Amatic SC', cursive;
 
         @include media($large-screen) {
           font-size: 6.8em;
@@ -64,7 +65,7 @@
   }
 }
 
-.welcome {
-  text-color: #121519;
+.minstrel {
+  font-family: 'Amatic SC', cursive;
 }
 

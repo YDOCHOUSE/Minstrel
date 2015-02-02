@@ -6,6 +6,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <link href='http://fonts.googleapis.com/css?family=Nunito:400,700,300' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css'>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -19,7 +20,7 @@
     <ul id="js-centered-navigation-menu" class="centered-navigation-menu show">
       <li class="nav-link"><a href="javascript:void(0)">Popular</a></li>
       <li class="nav-link"><%= link_to "Feed", feed_path %></li>
-      <li class="nav-link"><%= link_to "My Profile" %></li>
+      <li class="nav-link"><%= link_to "My Profile", profile_path(current_user.profile_name) %></li>
       <li class="nav-link logo">
       </li>
       <li class="nav-link"><a href="javascript:void(0)">Bands</a></li>
