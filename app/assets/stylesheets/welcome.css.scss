@@ -17,6 +17,7 @@
   background-size: cover;
   padding-bottom: 3em;
 
+
   .hero-logo img {
     height: 4em;
     margin-bottom: 1em;
@@ -35,22 +36,23 @@
       text-align: center;
       
       h1 {
-        font-size: 1.6em;
+        font-size: 6.8em;
         margin-bottom: 0.5em;
 
         @include media($large-screen) {
-          font-size: 1.8em;
+          font-size: 6.8em;
         }
       }
 
       p {
         font-weight: 200;
-        line-height: 1.4em;
+        line-height: 2.2em;
         margin: 0 auto 3em auto; 
 
         @include media($large-screen) {
-          font-size: 1.1em;
-          max-width: 40%;
+          font-size: 1.3em;
+          max-width: 80%;
+          color: white;
         }
       }
     }
@@ -62,4 +64,7 @@
   }
 }
 
+.welcome {
+  text-color: #121519;
+}
 
