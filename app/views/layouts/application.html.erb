@@ -20,7 +20,12 @@
     <ul id="js-centered-navigation-menu" class="centered-navigation-menu show">
       <li class="nav-link"><a href="javascript:void(0)">Popular</a></li>
       <li class="nav-link"><%= link_to "Feed", feed_path %></li>
-      <li class="nav-link"><%= link_to "My Profile", profile_path(current_user.profile_name) %></li>
+       <% if current_user %>
+        <li class="nav-link">
+          <%= link_to "My Profile", profile_path(current_user.profile_name) %>
+        </li>
+      <% else %>
+      <% end %>
       <li class="nav-link logo">
       </li>
       <li class="nav-link"><a href="javascript:void(0)">Bands</a></li>
