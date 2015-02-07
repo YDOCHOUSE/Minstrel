@@ -1,21 +1,30 @@
-<div class="page-header">
+<!-- <div class="page-header">
   <%= link_to "Add Friend", new_user_friendship_path(friend_id: @user) %>
-</div>
+</div> -->
 
-<% if @statuses %>
-  <% @statuses.each do |status| %>
-    
-    <div class="comment">
-      <div class="comment-image">
-        <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="Logo image">
-      </div>
-      <div class="comment-content">
-        <h1><%= @user.full_name %></h1>
-        <p><%= status.content %></p>
-        <p class="comment-detail"><%= link_to time_ago_in_words(status.created_at), status_path(status) %> ago</p>
-      </div>
+
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <% if @statuses %>
+      <% @statuses.each do |status| %>
+        
+        <div class="comment">
+          <div class="comment-image">
+            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="Logo image">
+          </div>
+          <div class="comment-content">
+            <h1><%= @user.full_name %></h1>
+            <p><%= status.content %></p>
+            <p class="comment-detail"><%= link_to time_ago_in_words(status.created_at), status_path(status) %> ago</p>
+          </div>
+        </div>
+        <script src="app/assets/stylesheets/chat.js">
+          <video id="player" autoplay="true"></video>
+        </script>
+      <% end %>
+      <% end %>
     </div>
-    <script src="app/assets/stylesheets/chat.js"></script>
-    <video id="player" autoplay="true"></video>
-  <% end %>
-<% end %>
+  </div>
+</div>
